@@ -122,14 +122,17 @@
             
             if (!show) {
                 show = true;
-                var sidebar = document.querySelector("div.formContent.embeddedServiceSidebarForm");
+                
                 var li2 = document.createElement("div");
                 li2.style.color = "white";
                 li2.style.backgroundColor  = "#18453B";
                 li2.style.padding = "5px";
                 li2.style.fontSize = "8px";
                 li2.appendChild(document.createTextNode("By completing this form and clicking the button below, I certify that I’m over that age of 18 (or have permission from a parent/guardian) and consent to receiving calls, text messages and/or emails from BISK, its client institutions, and their representatives regarding educational services and programs. I understand calls and texts may be directed to the number I provide using automatic dialing technology. I understand that this consent is not required to purchase goods or services."));
-                //sidebar.insertBefore(li2, sidebar.childNodes[0]);
+                
+                var sidebar = document.querySelector("div.formContent.embeddedServiceSidebarForm");
+
+                sidebar.insertAfter(li2, sidebar.childNodes[0]);
             }
             
         });  
