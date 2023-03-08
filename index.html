@@ -131,8 +131,10 @@
                 li2.appendChild(document.createTextNode("By completing this form and clicking the button below, I certify that I’m over that age of 18 (or have permission from a parent/guardian) and consent to receiving calls, text messages and/or emails from BISK, its client institutions, and their representatives regarding educational services and programs. I understand calls and texts may be directed to the number I provide using automatic dialing technology. I understand that this consent is not required to purchase goods or services."));
                 
                 var sidebar = document.querySelector("div.formContent.embeddedServiceSidebarForm");
-
-                sidebar.insertAfter(li2, sidebar.childNodes[1]);
+                
+                function insertAfter(newNode, referenceNode, parent) { parent.insertBefore(newNode, referenceNode.nextSibling); }
+                insertAfter(li2, sidebar.childNodes[0], sidebar);
+                //sidebar.insertBefore(li2, sidebar.childNodes[0]);
             }
             
         });  
