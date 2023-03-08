@@ -74,6 +74,32 @@
 </script>
 <!-- End of Invitations -->
 
+<script type='text/javascript'>
+    var initESW = function(gslbBaseURL) {
+
+        var show = false;
+        
+        embedded_svc.addEventHandler("afterMaximize", function(data) {
+            console.log("afterMaximize event was fired.");
+            
+            if (!show) {
+                show = true;
+                var li2 = document.createElement("div");
+                li2.style.color = "white";
+                li2.style.backgroundColor  = "blue";
+                li2.style.padding = "5px";
+                li2.appendChild(document.createTextNode("Please do not enter sensitive or confidential information such as credit card numbers, social security numbers, or medical history. In addition, we cannot provide any medical advice."));
+                    
+                var sidebar = document.querySelector("div.formContent.embeddedServiceSidebarForm");
+                
+                sidebar.insertBefore(li2, sidebar.childNodes[0]);
+            }
+            
+        });    
+        
+        embedded_svc.settings.displayHelpButton = true; //Or false
+        embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
     var initESW = function(gslbBaseURL) {
